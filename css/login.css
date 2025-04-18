@@ -1,0 +1,226 @@
+/* Reset general para asegurarse de que no haya márgenes o paddings extraños */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fondo galáctico */
+body {
+    font-family: 'Arial', sans-serif;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.9) 50%, rgba(0, 0, 30, 1) 100%), url('https://www.nasa.gov/sites/default/files/thumbnails/nasa-space-station-astrophotography.jpg') no-repeat center center fixed;
+    background-size: cover;
+    /* height: 100vh; */
+    display: flex;
+    flex-direction: column; /* Cambié aquí a columna para que el título esté arriba y el formulario abajo */
+    justify-content: flex-end; /* Alinea los elementos en la parte inferior */
+    align-items: center;
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efecto de estrellas animadas */
+body::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://cdn.pixabay.com/photo/2016/03/26/13/09/space-1263125_960_720.jpg') repeat;
+    animation: stars 100s linear infinite;
+    opacity: 0.4;
+}
+
+/* Animación para las estrellas */
+@keyframes stars {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(2000px, 2000px);
+    }
+}
+
+/* Estilo del contenedor del formulario */
+h1 {
+    font-size: 3rem;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+    margin-top: 50px; /* Asegura que el título esté un poco separado del borde superior */
+}
+
+/* Estilos del formulario */
+form {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+    z-index: 2;
+    margin: 20px 0; /* Añadido para darle espacio al formulario */
+}
+
+/* Estilo de los campos de entrada */
+input {
+    padding: 15px;
+    border: 2px solid #00FFFF;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-size: 1.1rem;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+    transition: all 0.3s ease;
+}
+
+/* Efecto de enfoque en los campos */
+input:focus {
+    border-color: #00FF99;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 1);
+}
+
+/* Estilo del botón */
+button {
+    padding: 15px;
+    background: linear-gradient(45deg, #00FFFF, #008B8B);
+    border: none;
+    border-radius: 25px;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 255, 255, 0.5);
+}
+
+/* Efecto hover en el botón */
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 30px rgba(0, 255, 255, 0.8);
+}
+a {
+    padding: 15px;
+    background: linear-gradient(45deg, #ffcdde, #ffc4d8);
+    border: none;
+    border-radius: 25px;
+    color: rgb(36, 36, 36);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(255, 11, 243, 0.5);
+    text-decoration: none;
+}
+
+/* Efecto hover en el botón */
+a:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 30px rgba(0, 255, 255, 0.8);
+}
+
+/* Estilo para el mensaje de error */
+#error-message {
+    margin-top: 10px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 0 0 10px #ff2626b3;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    /* Ajustar el título */
+    h1 {
+        font-size: 2.2rem;
+        margin-bottom: 20px;
+    }
+
+    /* Ajustar el formulario para pantallas pequeñas */
+    form {
+        padding: 25px;
+        width: 90%; /* Reducir el ancho del formulario para móviles */
+        max-width: 350px; /* Mantener un máximo ancho */
+    }
+
+    /* Ajustar los campos de entrada */
+    input {
+        font-size: 1rem;
+    }
+
+    /* Ajustar el tamaño del botón */
+    button {
+        font-size: 1.2rem;
+        padding: 12px;
+    }
+}
+
+/* Para dispositivos muy pequeños */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+    }
+
+    form {
+        padding: 20px;
+        width: 90%;
+    }
+
+    input {
+        font-size: 1rem;
+        padding: 12px;
+    }
+    button {
+        font-size: 1.2rem;
+        padding: 12px;
+    }
+}
+.password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-wrapper input {
+    width: 100%;
+    padding-right: 40px; /* espacio para el ojo */
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toggle-password svg {
+    width: 24px;
+    height: 24px;
+    transition: opacity 0.3s ease;
+}
+button[type="submit"] {
+    transition: transform 0.15s ease-in-out;
+}
+
+button[type="submit"].pressed {
+    transform: scale(0.9);
+}
+
+button[type="submit"].released {
+    transform: scale(1);
+}

@@ -1,0 +1,141 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    background-color: #ffffff;
+}
+
+.container {
+    max-width: 90%;
+    margin: 0 auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.079);
+}
+
+h1 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+.schedule-item {
+    position: relative;
+    background: #ffffff;
+    color: #ff6f9f;
+    padding: 10px;
+    margin: 5px 0;
+    margin-top: 0.6rem;
+    border: 1px solid #ff6f9f8a;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    overflow: hidden;
+    transition: background 0.3s ease, color 0.3s ease;
+    z-index: 1;
+}
+
+.schedule-item::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scaleX(0);
+    width: 200%; /* Se expande bien hacia los lados */
+    height: 100%;
+    background: rgb(255, 95, 149);
+    border-radius: 5px;
+    transition: transform 1s ease-out, opacity 1s ease-out;
+    z-index: 0;
+    pointer-events: none;
+    color: white;
+}
+
+.schedule-item:hover::after {
+    transform: translate(-50%, -50%) scaleX(1);
+    opacity: 0;
+    color: white;
+}
+
+.schedule-item:hover {
+    background: #ff4482;
+    color: white;
+}
+
+.schedule-item.reserved {
+    background: #ff6f9f8a;
+    color: #ffffff;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+
+/* Contenedor del botón para centrarlo */
+.btn-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn-volver {
+    position: relative;
+    display: inline-block;
+    background: #ff6f9f8a;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.3s ease;
+    min-width: 86%;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-volver::after {
+    content: "";
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.btn-volver:hover {
+    background: #ff4482;
+    color: white;
+}
+
+.btn-volver:hover::after {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+}
+
+.btn-volver, .schedule-item {
+    transition: transform 0.15s ease-in-out;
+}
+
+.btn-volver:active, .schedule-item:active {
+    transform: scale(0.9); /* Se hunde al presionar */
+}
+
+.btn-volver, .schedule-item{
+    transform: scale(1); /* Vuelve a su tamaño normal */
+}
+
+@media (max-width: 768px) {
+    .btn-volver {
+        min-width: 86%;
+    }
+    h2 {
+        font-size: 1.2rem;
+    }
+    h4 {
+        font-size: 1rem;
+    }
+  }

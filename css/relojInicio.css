@@ -1,0 +1,42 @@
+
+.clock {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffcdde;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffffd3;
+    padding: 0.8rem 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px #ffcdde;
+    width: 5rem;
+    margin: 0 auto;
+    /* margin-top: 1rem; */
+    margin-bottom: 0.2rem;
+}
+
+.clock div {
+    padding: 0 5px;
+}
+
+#hour, #minute, #second {
+    font-size: 1.5rem;
+}
+header .clock{
+    margin-top: 1rem;
+}
+@media screen and (max-width: 600px) {
+    .clock {
+        padding: 0.3rem 1.1rem;
+        border-radius: 0.3rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    #hour, #minute, #second {
+        font-size: 1.2rem;
+    }
+    header .clock{
+        margin-top: 0.8rem;
+    }
+}

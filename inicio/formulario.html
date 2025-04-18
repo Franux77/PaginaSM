@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programar Cita</title>
+    <link rel="shortcut icon" href="/assets/Logo.ico.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/formulario.css">
+</head>
+<body>
+    <img src="/assets/logo index.png" alt="Logo de la empresa"> 
+    <h1>Reserva tu cita</h1>
+    <p id="appointment-info"></p>
+
+    <form id="appointment-form">
+        <h2>Rellene el formulario</h2>
+        <div class="unputt">
+            <input type="text" id="nombre" placeholder="Nombre completo" required>
+            <input type="tel" id="telefono" placeholder="Teléfono" required>
+        </div>
+        
+        <input type="email" id="correo" placeholder="Correo electrónico">
+        
+        <label>Tipo de servicio</label>
+        <div>
+            <input type="checkbox" id="servicio1" name="servicios" value="Tratamiento capilar">
+            <label for="servicio1">Tratamiento capilar</label>
+        </div>
+        <div>
+            <input type="checkbox" id="servicio2" name="servicios" value="Manicura">
+            <label for="servicio2">Manicura</label>
+        </div>
+
+        <label>Métodos de Pago</label>
+        <div>
+            <input type="checkbox" id="metodo1" name="metodos" value="Transferencia">
+            <label for="metodo1">Transferencia</label>
+        </div>
+        <div>
+            <input type="checkbox" id="metodo2" name="metodos" value="Efectivo">
+            <label for="metodo2">Efectivo</label>
+        </div>
+
+        <button class="topp" onclick="confirmarReserva()">Programar cita</button>
+        <button id="back-button">Volver al calendario</button>
+    </form>
+
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+        (function() {
+            emailjs.init("uQ1lBd7xSIuQ9y-dj");
+        })();
+    </script>
+
+    <script type="module" src="/js/formulario.js"></script>
+    <script src="/js/redirects_url.js" defer></script>
+</body>
+</html>

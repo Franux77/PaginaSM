@@ -1,0 +1,28 @@
+# Dependencias de Node.js
+node_modules/
+
+# Carpetas de salida del build
+dist/
+build/
+
+# Variables de entorno (contienen información sensible)
+.env
+
+# Archivos de registro
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Archivos temporales del sistema
+.DS_Store
+Thumbs.db
+
+# Configuraciones específicas de IDEs y editores
+.vscode/
+.idea/
+*.swp
+
+# Dependencias (opcional: si deseas ignorar lockfiles)
+package-lock.json
+yarn.lock

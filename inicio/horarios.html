@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horarios Disponibles</title>
+    <link rel="stylesheet" href="/css/horarios.css">
+    <link rel="shortcut icon" href="/assets/Logo.ico.png" type="image/x-icon">
+</head>
+<style>
+    #schedule {
+     position: relative; /* Asegura que el overlay se posicione dentro */
+ }
+ 
+ .container .loader-overlay {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background-color: #00000025;
+     display: flex; /* 🔥 Usa flexbox para centrar */
+     justify-content: center;
+     align-items: center;
+     z-index: 999;
+ }
+ 
+ .spinner {
+     width: 50px;
+     height: 50px;
+     border: 5px solid #ccc;
+     border-top-color: #333;
+     border-radius: 50%;
+     animation: spin 1s linear infinite;
+ }
+ 
+ @keyframes spin {
+     to {
+         transform: rotate(360deg);
+     }
+ }
+ </style>
+<body>
+    <div class="container">
+        <h1 id="selected-date">Horarios disponibles</h1>
+        
+        <h2>Selecciona una hora</h2>
+        <h4>Duración: 1 hs - 2 hs</h4>
+        <div id="loader" style="display: none;" class="loader-overlay">
+            <div class="spinner"></div>
+          </div>
+        <div id="schedule"></div>
+    
+        <!-- Botón dentro del container -->
+        <div class="btn-container">
+            <a href="/inicio/inicio.html" class="btn-volver">Volver</a>
+        </div>
+    </div>
+    
+    <script type="module" src="/js/horarios.js"></script>
+    <script src="/js/redirects_url.js" defer></script>
+</body>
+</html>

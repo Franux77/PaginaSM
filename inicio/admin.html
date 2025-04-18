@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Administrativo</title>
+    <link rel="stylesheet" href="/css/reloj.css">
+    <link rel="stylesheet" href="/css/administración.css">
+    <link rel="shortcut icon" href="/assets/Logo.ico.png" type="image/x-icon">
+</head>
+<body>
+    <header class="header">
+    
+        <!-- Título -->
+        <h1>Panel de <br>Administración</br></h1>
+    
+        <!-- Botón de cerrar sesión -->
+        <button id="logout-btn" class="btn-secondary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+            </svg>
+        </button>
+    </header>
+    <nav class="nav-bar">   
+        <div class="clock">
+            <div id="hour">00</div>:<div id="minute">00</div>:<div id="second">00</div>
+        </div>
+        <a href="/inicio/inicio.html" class="nav-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar3-week" viewBox="0 0 16 16">
+                <path d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2M1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857z"/>
+                <path d="M12 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2m-5 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2m2-3a1 1 0 1 0 0-2 1 1 0 0 0 0 2m-5 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/>
+              </svg>
+        </a>
+    </nav>
+        <!-- Bloquear Días -->
+    <section id="block-dates" class="section-container">
+        <div class="toggle-header">
+            <h2 class="label1">Selecciona un día para bloquear</h2>
+            <span class="toggle-arrow">&#x2193;</span> <!-- Flecha hacia abajo -->
+        </div>
+        <div class="toggle-content">
+            <label for="date-picker"></label>
+            <input type="date" id="date-picker" class="input-field">
+            <button id="block-date-btn" class="btn-primary">Bloquear</button>
+        </div>
+    </section>
+
+    <!-- Gestión de Horarios Personalizados -->
+    <section id="manage-schedule" class="section-container">
+        <div class="toggle-header">
+            <h2 class="label1">Selecciona un día para habilitar</h2>
+            <span class="toggle-arrow">&#x2193;</span> <!-- Flecha hacia abajo -->
+        </div>
+        <div class="toggle-content">
+            <label for="schedule-date-picker"></label>
+            <input type="date" id="schedule-date-picker" class="input-field">
+            <div id="schedule-inputs-container"></div>
+            <button id="add-schedule-btn" class="btn-primary">Agregar Horario</button>
+            <button id="add-standard-schedule-btn" class="btn-secondary">Agregar Horarios Normales</button>
+            <button id="save-schedule-btn" class="btn-success">Guardar Horarios</button>
+        </div>
+    </section>
+
+    <!-- Sección de Buscador y Filtros -->
+<section id="filters" class="section-container">
+    <div class="search-container">
+        <input type="text" id="search-bar" placeholder="Buscar por nombre, correo o teléfono" class="input-field">
+        <button id="search-btn" class="btn-primary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+</svg></button>
+    </div>
+</section>
+<button id="clear-search-btn">Limpiar búsqueda</button>
+
+
+    <!-- Estadísticas Generales -->
+    <section id="stats" class="section-container">
+        <div class="stat">Total de turnos: <span id="total-turnos">0</span></div>
+    </section>
+
+    <h2>Lista de turnos reservados</h2>
+    <div class="container">
+        <div id="reserved-turnos-list"></div> <!-- Aquí se cargarán los turnos -->
+    </div>
+
+    <!-- Contenedor de Turnos Reservados -->
+    
+    <script type="module" src="/js/main.js"></script>
+    <script src="/js/divDesplazamientoAdmin.js"></script>
+    <script src="/js/reloj.js"></script>
+    <script src="/js/redirects_url.js" defer></script>
+</body>
+</html>

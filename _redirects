@@ -1,0 +1,12 @@
+# Redirección por defecto del home
+/               /inicio/inicio.html      200
+
+# Accesos específicos
+/login          /inicio/login.html       200
+/admin          /inicio/admin.html       200
+/formulario     /inicio/formulario.html  200
+/gracias        /inicio/gracias.html     200
+/horarios       /inicio/horarios.html    200
+
+# Redirección por error (opcional)
+/*              /inicio/inicio.html      404

@@ -1,0 +1,823 @@
+/* Estilo para el header */
+body {
+    margin: 0 auto;
+    /* padding: 0.4em; */
+    background-color: #fff0f0;
+}
+@media screen and (min-width: 1024px) {
+    body {
+        max-width: 50%;
+    }
+    .nav-bar {
+        padding: 1rem;
+    }
+}
+.header {
+    background-color: #ffffff; /* Fondo oscuro */
+    color: #ffcdde; /* Color cian */
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: start;
+    padding: 0.5rem 0.7rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    margin-top: 0.1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.315);
+}
+
+.logo {
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    filter: drop-shadow(0 0 1px #ffffff); /* Efecto de sombra sobre el logo */
+}
+
+#logo {
+    height: 5rem; /* Ajusta el tamaño del logo */
+    margin-right: 0.5rem;
+}
+
+h1 {
+    font-size: 1.4rem; /* Ajuste de tamaño */
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 0; /* Asegurarse de que no haya margen */
+    flex-grow: 1; /* Hace que el título ocupe el espacio disponible */
+    margin-top: 0.5rem;
+}
+
+#logout-btn {
+    background-color: #ffcdde;
+    border: none;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    width: 3rem;
+    height: 3rem;
+    margin-top: 1rem;
+}
+
+#logout-btn:hover {
+    background-color: #000000;
+    transform: scale(1.1);
+    color: #ffcdde;
+    
+}
+
+/* Estilo para el SVG dentro del botón */
+#logout-btn svg {
+    width: 1rem;
+    height: 1rem;
+    fill: #ff3a7b;
+}
+
+/* nav */
+.nav-bar {
+    background-color: #ffffff00;
+    padding: 0.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.487); */
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+
+.nav-link {
+    background-color: #444;
+    padding: 0.7rem;
+    border-radius: 15%; /* Borde redondeado */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Efectos de transición */
+    /* margin-right: 4rem; */
+    margin: 0.2rem auto;
+    margin-left: 3px;
+}
+.nav-link .clock {
+    margin:4rem;
+}
+
+.nav-link:hover {
+    background-color: #555; /* Color al pasar el mouse */
+    transform: scale(1.1); /* Efecto de aumento al pasar el mouse */
+}
+
+/* Estilo para los SVG */
+.nav-link svg {
+    width: 1rem;
+    height: 1rem;
+    fill: white;
+    transition: fill 0.3s ease;
+}
+
+.nav-link:hover svg {
+    fill: #00e6ff; /* Cambio de color en el hover */
+}
+/* ////////////////////////////////////////////////////////////////////////// */
+/* estilo de bloquear y habilitar dias */
+
+/* Estilos generales para las secciones plegables */
+.toggle-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff; /* Color de fondo del encabezado */
+    color: rgb(0, 0, 0); /* Color del texto */
+    padding: 0.2rem 0.5rem;
+    cursor: pointer; /* Cursor de mano al pasar sobre el encabezado */
+    font-size: 1.1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0 auto;
+    /* font-family: Arial, Helvetica, sans-serif; */
+}
+
+.toggle-header:hover {
+    background-color: #ffffff; /* Efecto hover para el encabezado */
+}
+
+.toggle-arrow {
+    font-size: 1.5rem; /* Tamaño de la flecha */
+    transition: transform 0.3s ease; /* Animación para la rotación de la flecha */
+}
+
+.toggle-content {
+    display: none; /* Contenido oculto por defecto */
+    padding: 1rem;
+}
+
+/* Cuando la sección esté expandida, muestra el contenido */
+.section-container.active .toggle-content {
+    display: block;
+}
+
+/* Rota la flecha cuando se expande la sección */
+.section-container.active .toggle-arrow {
+    transform: rotate(180deg); /* Rota la flecha hacia arriba */
+}
+
+.input-field {
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+    margin: 0 auto;
+}
+
+.btn-primary, .btn-secondary, .btn-success {
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+    margin: 0.5rem 0;
+}
+
+.btn-primary {
+    background-color: #ffcdde;
+    color: #000000;
+}
+
+.btn-secondary {
+    background-color: #2a2a2a;
+    color: #ffffff;
+}
+
+.btn-success {
+    background-color: #ffcdde;
+    color: rgb(0, 0, 0);
+}
+
+
+.btn-primary, .btn-secondary, .btn-success, #clear-search-btn, .logout-btn {
+    transition: transform 0.15s ease-in-out;
+}
+
+.btn-primary:active, .btn-secondary:active, .btn-success:active, #clear-search-btn:active, .logout-btn:active {
+    transform: scale(0.9); /* Se hunde al presionar */
+}
+
+.btn-primary, .btn-secondary, .btn-success, #clear-search-btn, .logout-btn {
+    transform: scale(1); /* Vuelve a su tamaño normal */
+}
+
+#logout-btn {
+    transition: transform 0.15s ease-in-out;
+}
+
+#logout-btn.pressed {
+    transform: scale(0.9);
+}
+
+/* Efectos hover para los botones */
+.btn-primary:hover {
+    background-color: #ffcdde;
+    color: #ffffff;
+}
+
+.btn-secondary:hover {
+    background-color: #2a2a2a;
+    color: #ffffff;
+}
+
+.btn-success:hover {
+    background-color: #ffcdde;
+    color: white;
+}
+
+/* ////////////////////////////////////////////////////////////////// */
+/* Estilo general para el contenedor de los inputs de horario */
+.schedule-input {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f4f7fb; /* Fondo suave y moderno */
+    border: 1px solid #ddd; /* Borde claro */
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem 0;
+    transition: all 0.3s ease; /* Transición suave para efectos */
+}
+
+/* Efecto cuando el contenedor tiene el foco o pasa el mouse */
+.schedule-input:hover {
+    border-color: #000000; /* Resaltar el borde con azul */
+    box-shadow: 0 0 8px rgba(0, 170, 255, 0.3); /* Sombra suave alrededor */
+}
+
+/* Estilo para la etiqueta */
+.schedule-input label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    margin-right: 1rem; /* Espacio entre la etiqueta y el input */
+    flex-shrink: 0; /* Evitar que la etiqueta se encoja */
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Estilo para el input de hora */
+.schedule-time {
+    width: 120px;
+    padding: 0.6rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #000000;
+    background-color: #fff;
+    transition: border-color 0.3s ease;
+}
+
+/* Efecto cuando el input está enfocado */
+.schedule-time:focus {
+    border-color: #000000; /* Cambio de borde en foco */
+    outline: none; /* Eliminar borde por defecto */
+}
+
+/* Estilo para el botón de eliminar */
+.remove-schedule-btn {
+    background-color: #ff0000; /* Rojo suave */
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Efecto hover del botón de eliminar */
+.remove-schedule-btn:hover {
+    background-color: #1d1d1d; /* Rojo más oscuro al hacer hover */
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño del botón */
+}
+
+/* ///////////////////////////////////////////////////////////////////////// */
+/* Estilo para la sección de filtros */
+#filters {
+    display: flex;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    margin-top: 1rem; /* Agrega espacio superior */
+    margin-bottom: 0.1rem;
+}
+#clear-search-btn{
+    background-color: #000000;
+    width: 98%;
+    padding: 0.5rem;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    margin: 0 auto;
+    margin: 0 0.2rem;
+    margin-bottom: 1rem;
+    border-radius: 0.4rem;
+}
+/* Contenedor del buscador y el botón */
+.search-container {
+    display: flex;
+    width: 99%;
+    height: 2rem;
+    gap: 1px;
+}
+
+/* Estilo para el campo de búsqueda */
+#search-bar {
+    flex: 1; 
+    /* padding: 0.2rem; */
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    /* gap: 5px; */
+}
+
+/* Estilo para el botón de búsqueda */
+#search-btn {
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+    background-color: #000000;
+    color: white;
+    /* border: 1px solid #007bff; */
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Efecto hover para el botón */
+#search-btn:hover {
+    background-color: #0056b3;
+}
+/* contador///////////////////////////////////////////////////// */
+/* Estilo base para la sección de estadísticas */
+#stats {
+    background: #ffcdde; /* Fondo sólido en un color azul oscuro profesional */
+    color: rgb(255, 255, 255); /* Color de texto blanco */
+    border-radius:0.2rem; 
+    /* padding: 0.2rem; */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); 
+    margin: 1rem 0.2rem;
+    transition: all 0.3s ease-in-out;
+    font-family: Arial, Helvetica, sans-serif;
+}
+h2{
+    color: rgb(0, 0, 0);
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    margin: 1rem;
+}
+/* Efecto de hover */
+#stats:hover {
+    transform: scale(1.03); /* Efecto de agrandado en hover */
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3); /* Sombra más intensa al pasar el mouse */
+}
+
+
+/* Estilo para cada estadística */
+.stat {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Estilo del contador de turnos */
+#total-turnos {
+    font-size: 1.5rem; /* Aumento el tamaño del número */
+    font-weight: 700; /* Hago el número más grueso */
+    color: #ffffff; /* Color dorado para destacar */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.387); 
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+/* Turnos reservados/////////////////////////////////////////// */
+/* Estilos generales de fechas y sus turnos reales reservados */
+.fecha-container {
+    background: #ffcdde;
+    color: #fff;
+    padding: 10px;
+    margin: 1rem;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 0.2rem;
+}
+
+.turno-card {
+    padding: 1rem;
+    margin: 1rem;
+    margin-bottom: 1rem;
+    margin-top: 0.1rem;
+    background-color: #ffffff; /* Fondo blanco para las tarjetas */
+    border-radius: 8px;
+    border: 1px solid #e0e0e0; /* Borde sutil */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.386); /* Sombra suave para dar profundidad */
+}
+
+.turno-card p {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+    color: #333; /* Texto oscuro para buen contraste */
+    line-height: 1.5; /* Alineación de texto mejorada */
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: 800;
+}
+
+.turno-card strong {
+    font-weight: 600; /* Hacer los títulos más destacados */
+}
+
+.cancel-btn {
+    display: inline-block;
+    background-color: #ff0101; /* Rojo para el botón de cancelar */
+    color: white;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s ease;
+    margin-top: 0.2rem;
+}
+
+/* Efecto al pasar el cursor sobre el botón */
+
+.cancel-btn {
+    transition: transform 0.15s ease-in-out;
+}
+
+.cancel-btn.pressed {
+    transform: scale(0.9);
+}
+/* ////////////////////////////////////////////////////////////////////////////// */
+
+/* responsividad de header */
+
+/* Estilo adicional para el contenedor del logo y el título */
+@media (max-width: 768px) {
+    .header {
+        flex-direction:row;
+        align-items:start;
+        margin: 1rem;
+        border-radius: 0.4rem;
+    }
+
+    h1 {
+        margin-bottom: 0.8rem;
+    }
+
+    #logout-btn {
+        margin-top: 0.5rem;
+        width: 3rem;
+        height: 3rem;
+    }
+    .nav-bar {
+        padding: 0;
+    }
+}
+@media (max-width: 480px) {
+    .header {
+        flex-direction:row;
+        align-items:start;
+        margin: 1rem;
+        border-radius: 0.4rem;
+    }
+
+    h1 {
+        margin-bottom: 0.8rem;
+    }
+
+    #logout-btn {
+        margin-top: 0.5rem;
+        width: 3rem;
+        height: 3rem;
+    }
+    .nav-bar {
+        padding: 0;
+    }
+}
+
+/* css responsivo para habilitar y bloquear dias */
+
+@media (max-width: 768px) {
+    /* Ajusta el tamaño de fuente y padding del encabezado */
+    .toggle-header {
+                font-size: 0.8rem; /* Tamaño ajustado del texto */
+                text-align: center; /* Centra el contenido */
+                flex-direction:row; /* Apila los elementos */
+                color: #000000;
+                box-shadow: 0 4px 10px #22222256;
+                margin: 1rem;
+                font-family: Arial, Helvetica, sans-serif;
+                border-radius: 0.4rem;
+    }
+
+    /* Reduce el tamaño de la flecha para mejor proporción */
+    .toggle-arrow {
+        font-size: 1rem;
+    }
+
+    /* Reduce el padding del contenido desplegable */
+    .toggle-content {
+        padding: 0.5rem; /* Unificado el ajuste de padding */
+        margin: 1rem;
+        box-shadow: 0 4px 10px #22222256;
+        border-radius: 0.4rem;
+        border: 2px solid #22222256;
+        margin-top: 0;
+    }
+
+    /* Ajusta el tamaño y espaciado de los botones y campos de entrada */
+    .input-field, .btn-primary, .btn-secondary, .btn-success {
+        font-size: 0.9rem; /* Tamaño de fuente más pequeño */
+        padding: 0.4rem 0.8rem; /* Reduce el espacio interno */
+    }
+
+    /* Ajuste de ancho en botones y campos de entrada */
+    .btn-primary, .btn-secondary, .btn-success {
+        font-size: 0.9rem;
+        width: 100%; /* Ancho completo */
+        display: block;
+        text-align: center;
+        padding: 0.5rem 0;
+        margin-top: 5px;
+    }
+
+    .input-field {
+        width: 97%; /* Ajuste de ancho */
+        border: 1px solid #1c00ff;
+        margin: 0 auto;
+    }
+}
+@media (max-width: 480px) {
+    /* Ajustes para el encabezado en pantallas más pequeñas */
+    .toggle-header {
+        font-size: 0.8rem; /* Tamaño ajustado del texto */
+        text-align: center; /* Centra el contenido */
+        flex-direction:row; /* Apila los elementos */
+        color: #000000;
+        box-shadow: 0 4px 10px #22222256;
+        margin: 1rem;
+        font-family: Arial, Helvetica, sans-serif;
+        border-radius: 0.4rem;
+        margin-bottom: 0;
+}
+
+    /* Ajuste en el color del texto dentro del encabezado */
+    .toggle-header h2 {
+        color: rgb(0, 0, 0);
+    }
+
+    /* Reduce el tamaño de la flecha */
+    .toggle-arrow {
+        font-size: 1.1rem;
+        color: #ffcdde;
+        margin-right: 1rem;
+    }
+
+    /* Ajuste del contenido desplegable */
+    .toggle-content {
+        padding: 0.5rem;
+        margin: 1rem;
+        box-shadow: 0 4px 10px #22222256;
+        border-radius: 0.4rem;
+        border: 2px solid #22222256;
+        margin-top: 0;
+    }
+
+    /* Botones optimizados para pantallas pequeñas */
+    .btn-primary, .btn-secondary, .btn-success {
+        font-size: 0.9rem;
+        width: 100%; /* Ancho completo */
+        display: block;
+        text-align: center;
+        padding: 0.5rem 0;
+        margin-top: 5px;
+    }
+
+    /* Ajustes en los campos de entrada */
+    .input-field {
+        max-width: 95%;
+        font-size: 0.9rem;
+        padding: 0.5rem;
+        margin: 0 auto;
+        display: block;
+        text-align: center;
+        margin-top: 5px;
+    }
+}
+
+/* Estilo general para el contenedor de los inputs de horario */
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .schedule-input {
+        display: flex;
+        text-align: center;
+        flex-wrap: nowrap; /* Evita que se apilen */
+        justify-content: center; /* Alinea los elementos */
+        gap: 0.5rem; /* Espacio entre elementos */
+        overflow-x: auto; /* Permite desplazamiento horizontal si es necesario */
+        border-radius: 0.4rem;
+    }
+
+    .schedule-input label {
+        white-space: nowrap; /* Evita saltos de línea */
+        font-size: 0.9rem; /* Ajusta el tamaño */
+    }
+
+    .schedule-time, 
+    .remove-schedule-btn {
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .schedule-input {
+        flex-wrap: nowrap; /* Asegura distribución horizontal */
+        justify-content: flex-start;
+        overflow-x: scroll; /* Permite desplazamiento si hay muchos elementos */
+    }
+
+    .schedule-time, .remove-schedule-btn {
+        min-width: 100px; /* Se mantienen anchos pero compactos */
+        padding: 0.3rem;
+    }
+}
+
+/* Estilo para la sección de filtros de busqueda*/
+
+@media (max-width: 768px) {
+    /* El contenedor del buscador y botón ahora será 100% del ancho disponible */
+    .search-container {
+        flex-direction:row; /* Coloca los elementos en una columna */
+        gap: 0.1rem; /* Menos espacio entre el input y el botón */
+        margin: 1rem;
+        margin-bottom: 0;
+    }
+
+    #search-bar {
+        width: 100%; /* Hace que el input ocupe todo el ancho disponible */
+    }
+
+    #search-btn {
+        width: 20%; /* El botón ocupa todo el ancho disponible */
+    }
+    #clear-search-btn{
+        background-color: #000000;
+        width: 92%;
+        padding: 0.5rem;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1rem;
+        margin: 1rem; /* Mantiene el botón centrado con margen adecuado */
+        border-radius: 0.4rem;
+        text-align: center;
+        display: block;
+        margin-top: 0.1rem;
+    }
+}
+
+/* Media Queries para dispositivos extra pequeños (móviles muy pequeños) */
+@media (max-width: 480px) {
+    #search-bar {
+        padding: 0.4rem 0.3rem;
+        font-size: 0.9rem; /* Reduce el tamaño de la fuente */
+        text-align: left;
+        margin-top: 0;
+    }
+
+    #search-btn {
+        padding: 0.5rem;
+        margin: 0;
+        font-size: 0.8rem;
+        display: flex;
+        justify-content: center; /* Centrar el contenido horizontalmente */
+        align-items: center; /* Centrar el contenido verticalmente */
+        background-color: #000000; /* Color de fondo del botón */
+        border: none;
+        border-radius: 4px; /* Borde redondeado del botón */
+        cursor: pointer;
+    }
+    
+    #search-btn svg {
+        width: 15px; /* Ajusta el tamaño del SVG según sea necesario */
+        height: 16px; /* Ajusta el tamaño del SVG según sea necesario */
+        margin: 0; /* Elimina el margen extra */
+        fill: white; /* Color del icono, puedes cambiarlo si es necesario */
+    }
+    #clear-search-btn {
+        background-color: #000000;
+        width: 92%;
+        padding: 0.5rem;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1rem;
+        margin: 1rem; /* Mantiene el botón centrado con margen adecuado */
+        border-radius: 0.4rem;
+        text-align: center;
+        display: block;
+        margin-top: 0.1rem;
+    }
+}
+/* Estilo base para la sección de contador de turnos */
+@media (max-width: 768px) {
+    #stats {
+        padding: 0.5rem;
+        margin: 1rem; /* Ajusto el margen */
+        border-radius: 0.4rem;
+    }
+    .h22{
+        color: rgb(0, 0, 0);
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1rem;
+        /* margin: 1rem; */
+    }
+    .stat {
+        font-size: 0.8rem; /* Disminuyo el tamaño de la fuente en pantallas pequeñas */
+    }
+
+    #total-turnos {
+        font-size: 0.5rem; /* Disminuyo el tamaño del número en pantallas pequeñas */
+    }
+}
+
+/* Estilo para pantallas muy pequeñas (móviles) */
+@media (max-width: 480px) {
+    #stats {
+        padding: 0.5rem;
+        margin: 1rem; /* Ajusto el margen */
+        border-radius: 0.4rem;
+    }
+    .aviso{
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        color: red;
+    }
+    .stat {
+        font-size: 1rem; /* Tamaño de fuente más pequeño */
+    }
+
+    #total-turnos {
+        font-size: 1rem; /* Disminuyo más el tamaño del número */
+    }
+}
+/* Estilos generales de fechas y sus turnos reales reservados */
+
+/* Estilos responsivos para pantallas pequeñas */
+@media (max-width: 768px) {
+    .fecha-container {
+        /* background: #ffcdde; */
+        color: #fff;
+        padding: 10px;
+        margin: 1rem;
+        border-radius: 5px;
+        font-weight: bold;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        margin-top: 0.2rem;
+    }
+    .turnos-card {
+        margin: 1rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.3rem;
+    }
+    .turno-card p {
+        font-size: 0.9rem; 
+    }
+
+    .turno-card {
+        padding: 0.4rem; 
+        margin: 1rem;
+    }
+
+    .cancel-btn {
+        width: 100%; 
+        padding: 1rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .turno-card p {
+        font-size: 0.85rem; /* Reducir aún más el tamaño de la fuente en pantallas muy pequeñas */
+    }
+
+    .turno-card {
+        padding: 1rem; /* Menos padding para optimizar espacio */
+        margin: 1rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .cancel-btn {
+        padding: 0.4rem; /* Aumenta el padding para la accesibilidad */
+    }
+}
+
