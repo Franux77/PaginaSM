@@ -15,7 +15,9 @@
     /* margin-top: 1rem; */
     margin-bottom: 0.2rem;
 }
-
+body.dark .clock {
+    background-color: #171717;
+}
 .clock div {
     padding: 0 5px;
 }

@@ -5,19 +5,26 @@ body {
     padding: 20px;
     background-color: #ffffff;
 }
-
+body.dark {
+    background-color: #171717;
+}
 .container {
     max-width: 90%;
     margin: 0 auto;
-    background: white;
+    background: transparent;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.079);
 }
-
+body.dark{
+    color: white;
+}
 h1 {
     font-size: 1.3rem;
     margin-bottom: 1rem;
+}
+body.dark .schedule-item {
+    background-color: transparent;
 }
 .schedule-item {
     position: relative;
@@ -79,7 +86,7 @@ h1 {
 .btn-volver {
     position: relative;
     display: inline-block;
-    background: #ff6f9f8a;
+    background: #ff6f9f;
     color: #ffffff;
     padding: 10px 20px;
     border-radius: 5px;
@@ -167,8 +174,8 @@ h1 {
     color: #ff6f9f;
 }
 body.dark .reservar-btn {
-    background-color:#a0e90f;
-    color: #272727;
+    background-color:#ff6f9f;
+    color: #ffffff;
     border: none;
 }
 
@@ -177,7 +184,7 @@ body.dark .reservar-btn {
     color: #ff5f95;
 }
 body.dark .cancelar-btn {
-    background-color: red;
+    background-color: #ff6f9f;
     color: #ffffff;
     border: none;
 }
@@ -189,6 +196,11 @@ body.dark .cancelar-btn {
 .reservar-btn:hover {
     background-color: #ff5f95;
     color: #000000;
+    font-weight: bold;
+}
+body.dark .cancelar-btn:hover {
+    background-color: #ff0000;
+    color: #ffffff;
     font-weight: bold;
 }
 .option-btn:hover {

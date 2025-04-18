@@ -6,11 +6,14 @@ body {
     /* padding: 10px; */
     color: #333;
 }
+body.dark{
+  background-color: #171717;
+}
 /* Estilos para el encabezado */
 header {
     background: linear-gradient(-45deg, #ffe0f0, #d0ffe2, #fcd0ff, #c2f0ff);
     background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
+    animation: gradientBG 10s ease infinite;
     padding: 20px;
     text-align: center;
     border-radius: 8px;
@@ -19,6 +22,12 @@ header {
     margin: 0.5rem 0.2rem;
     margin-top: 0;
     margin-bottom: 1rem;
+}
+body.dark header {
+    background: linear-gradient(-45deg, #ff8ec8, #75ffaa, #f679ff, #67d9ff);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.315);
 }
 @keyframes gradientBG {
     0% {
@@ -49,6 +58,40 @@ header h1 {
     margin-top: 0;
 }
 
+header a {
+    position: absolute;
+    top: 1.1rem; /* Espaciado desde la parte superior */
+    left: 1.5rem; /* Espaciado desde la izquierda */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px; /* Tamaño del botón */
+    height: 40px;
+    border-radius: 50%; /* Para hacerlo redondo */
+    background-color: #0000002a; /* Fondo sutil */
+    padding: 0.2rem;
+  }
+  body.dark header a {
+    background-color: #0000001e; /* Fondo sutil */
+  }
+  header a svg {
+    width: 1.7rem;
+    height: 1.7rem;
+    fill: #000000;
+  }
+  body.dark header a svg {
+    fill: #ffcdde;
+  }
+  header a svg:hover {
+    fill: #00eeff;
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+  header a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Fondo sutil */
+    top: 1.1rem; /* Espaciado desde la parte superior */
+    left: 1.5rem; /* Espaciado desde la izquierda */
+  }
 /* Información de ubicación y recordatorio */
 header h3 {
     font-size: 16px;
@@ -69,6 +112,9 @@ h4 {
 h2{
     text-align: center;
 }
+body.dark h2{
+    color: white;
+}
 /* Container for the calendar */
 .calendar-container {
     max-width: 100%; /* Flexible width */
@@ -85,7 +131,6 @@ h2{
     justify-content:center;
     align-items: center;
     margin-bottom: 10px;
-    color: #ffcdde;
     flex-wrap: wrap; /* Wrap elements for smaller screens */
 }
 
@@ -93,20 +138,21 @@ h2{
     /* background: #91c6ff; */
     border: none;
     font-size: 1.6rem;
-    color: #ffcdde;
+    color: #000000;
     cursor: pointer;
     transition: color 0.3s ease;
     /* border-radius: 50%; */
     /* padding: 0.5rem; */
-    background: #ddeafc;
+    background: #ffcdde;
     border-radius: 50%;
     width: 3rem;
     height: 3rem;
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.315);
 }
-
-.calendar-header button:hover {
-    color: #000000; /* Highlight on hover */
+body.dark .calendar-header button {
+    color: #000000;
+    background-color: #ffcdde;
+    box-shadow: 0 2px 2px rgba(255, 255, 255, 0.315);
 }
 
 #current-month {
@@ -117,6 +163,9 @@ h2{
     margin-top: 5px;
     color: #ffcdde;
     margin: 1rem;
+}
+body.dark #current-month {
+    color:#ffcdde ;
 }
 
 /* Weekday labels */
@@ -129,6 +178,9 @@ h2{
     margin-bottom: 10px;
     padding: 5px 0;
     font-size: 0.8rem; /* Smaller font for smaller screens */
+}
+body.dark .weekdays {
+    color: white;
 }
 
 /* Calendar grid */
@@ -168,13 +220,10 @@ h2{
     /* Adjust the header font size */
     .calendar-header button {
         font-size: 16px;
-        color: #ffffff;
-        background-color: #ff93b78a;
     }
 
     #current-month {
         font-size: 1.1rem;
-        color: #ff93b78a;
     }
 
     /* Weekdays and calendar grid */
@@ -196,7 +245,6 @@ h2{
     }
     h2{
         font-family: Arial, Helvetica, sans-serif;
-        color: #5b5b5b;
         font-size: 1.2rem;
         margin: 0.3rem 0;
     }
@@ -260,11 +308,15 @@ h2{
 /* Available day styles */
 .available {
     /* background-color: #edf4ff; original */
-    background-color: #ff93b78a;
+    background-color: #ffcdde;
     color: #ffffff;
     border-radius: 50%;
     transition: background-color 0.9s ease; /* Efecto suave */
     
+}
+body.dark .available {
+    background-color: #ffcdde;
+    color: #000000;
 }
 
 .available:hover {
@@ -276,12 +328,23 @@ h2{
 /* Unavailable and disabled days */
 .unavailable,
 .disabled {
-    background-color: #ffffff;
+    background-color: #e4e4e4c0;
     color: #666;
     cursor: not-allowed;
     pointer-events: none;
     opacity: 0.5;
+    border-radius: 50%;
 }
+body.dark .unavailable,
+body.dark .disabled {
+    background-color: #ffffff1f;
+    color: #ffffff;
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: 0.5;
+    border-radius: 50%;
+}
+
 /* estilo menu */
 /* ///////////////////////////////////////////////////////////////////////// */
 
@@ -346,7 +409,7 @@ nav ul li i {
 }
 /* Footer */
 footer {
-    background-color: #fcd0e03c;
+    background-color: #ffcdde;
     padding: 0.2rem;
     font-size: 0.9rem;
     color: #333;
@@ -354,6 +417,9 @@ footer {
     margin-top: 3rem;
     margin-bottom: 0;
     margin-top: 1.4rem;
+}
+body.dark footer {
+    background-color: #ffcdde;
 }
 .calendar-header button:disabled {
     opacity: 0.5;
@@ -364,6 +430,12 @@ footer {
     color: rgb(31, 31, 31);
     font-size: 0.8rem;
     /* border: 1px solid black; */
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.315);
+}
+body.dark .calendar-header button:disabled {
+    background-color: #ffcdde;
+    color: #1f1f1f;
+    font-size: 0.8rem;
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.315);
 }
 .calendar-header button, .available {
