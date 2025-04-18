@@ -377,3 +377,44 @@ footer {
 .calendar-header button, .available {
     transform: scale(1); /* Vuelve a su tamaño normal */
 }
+
+#calendar.fade-in.left,
+#current-month.fade-in.left {
+animation: perspectiveBlurIn 0.7s ease-out;
+}
+
+#calendar.fade-out.left,
+#current-month.fade-out.left {
+animation: perspectiveBlurOut 0.5s ease-in;
+}
+
+#calendar.fade-in.right,
+#current-month.fade-in.right {
+animation: perspectiveBlurIn 0.7s ease-out;
+}
+
+#calendar.fade-out.right,
+#current-month.fade-out.right {
+animation: perspectiveBlurOut 0.5s ease-in;
+}
+
+@keyframes perspectiveBlurIn {
+from { opacity: 0; transform: perspective(800px) rotateX(30deg) scale(0.8); filter: blur(8px); }
+to { opacity: 1; transform: perspective(800px) rotateX(0deg) scale(1); filter: blur(0px); }
+}
+
+@keyframes perspectiveBlurOut {
+from { opacity: 1; transform: perspective(800px) rotateX(0deg) scale(1); filter: blur(0px); }
+to { opacity: 0; transform: perspective(800px) rotateX(-30deg) scale(0.8); filter: blur(8px); }
+}
+
+.day.fade-in-day {
+animation: zoomBounceIn 0.6s ease-out forwards;
+}
+
+@keyframes zoomBounceIn {
+0% { opacity: 0; transform: scale(0.7); filter: blur(5px); }
+50% { opacity: 1; transform: scale(1.1); filter: blur(2px); }
+100% { transform: scale(1); filter: blur(0px); }
+}
+

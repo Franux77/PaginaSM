@@ -1,4 +1,4 @@
-import { collection, doc, onSnapshot } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore.js";
+import { doc, getDoc } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore.js";
 import { db } from "./firebase-config.js";
 
 // DOM
@@ -28,7 +28,26 @@ function initializeWeekdays() {
   });
 }
 
-// Render del calendario con spinner
+// Animación carrusel
+function animateTransition(callback, direction = "left") {
+  calendar.classList.add("fade-out", direction);
+  monthDisplay.classList.add("fade-out", direction);
+
+  setTimeout(() => {
+    callback();
+    calendar.classList.remove("fade-out", direction);
+    monthDisplay.classList.remove("fade-out", direction);
+    calendar.classList.add("fade-in", direction);
+    monthDisplay.classList.add("fade-in", direction);
+
+    setTimeout(() => {
+      calendar.classList.remove("fade-in", direction);
+      monthDisplay.classList.remove("fade-in", direction);
+    }, 500);
+  }, 300);
+}
+
+// Render del calendario
 function renderCalendar() {
   calendar.innerHTML = "";
   loadingSpinner.style.display = "flex";
@@ -45,10 +64,8 @@ function renderCalendar() {
     return;
   }
 
-  // Actualizar botones de navegación
   updateNavigationButtons();
 
-  // Espacios vacíos antes del primer día
   for (let i = 0; i < firstDay; i++) {
     const emptyCell = document.createElement("div");
     emptyCell.classList.add("empty-day");
@@ -66,42 +83,43 @@ function renderCalendar() {
     dayElement.textContent = day;
     dayElement.classList.add("day");
 
+    // Animación fila por fila
+    const row = Math.floor((firstDay + day - 1) / 7);
+    dayElement.style.animationDelay = `${row * 100}ms`;
+    dayElement.classList.add("fade-in-day");
+
     if (date < today) {
       dayElement.classList.add("unavailable");
     }
 
     calendar.appendChild(dayElement);
 
-    const p = new Promise(resolve => {
+    const p = new Promise(async resolve => {
       try {
         const horariosRef = doc(db, "horarios", dateKey);
-        const unsubscribe = onSnapshot(horariosRef, (snapshot) => {
-          if (snapshot.exists()) {
-            const horarios = snapshot.data().horarios || [];
-            const isAvailable = horarios.some(horario => horario.disponible);
+        const snapshot = await getDoc(horariosRef);
 
-            if (isAvailable) {
-              dayElement.classList.add("available");
-              dayElement.classList.remove("disabled");
-              dayElement.onclick = () => {
-                window.location.href = `/inicio/horarios.html?date=${dateKey}`;
-              };
-            } else {
-              dayElement.classList.add("disabled");
-            }
+        if (snapshot.exists()) {
+          const horarios = snapshot.data().horarios || [];
+          const isAvailable = horarios.some(horario => horario.disponible);
+
+          if (isAvailable) {
+            dayElement.classList.add("available");
+            dayElement.classList.remove("disabled");
+            dayElement.onclick = () => {
+              window.location.href = `/inicio/horarios.html?date=${dateKey}`;
+            };
           } else {
             dayElement.classList.add("disabled");
           }
+        } else {
+          dayElement.classList.add("disabled");
+        }
 
-          unsubscribe();
-          resolve();
-        }, (error) => {
-          console.error(`Error al obtener disponibilidad para ${dateKey}:`, error);
-          dayElement.classList.add("error-day");
-          resolve();
-        });
-      } catch (e) {
-        console.error("Error inesperado:", e);
+        resolve();
+      } catch (error) {
+        console.error(`Error al obtener disponibilidad para ${dateKey}:`, error);
+        dayElement.classList.add("error-day");
         resolve();
       }
     });
@@ -117,7 +135,7 @@ function renderCalendar() {
   });
 }
 
-// Cambio de mes
+// Cambio de mes con animación
 function changeMonth(step) {
   const newDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + step, 1);
   const today = new Date();
@@ -125,12 +143,15 @@ function changeMonth(step) {
   const maxDate = new Date(today.getFullYear(), today.getMonth() + maxMonths, 1);
 
   if (newDate >= minDate && newDate <= maxDate) {
-    currentDate = newDate;
-    renderCalendar();
+    const direction = step > 0 ? "left" : "right";
+    animateTransition(() => {
+      currentDate = newDate;
+      renderCalendar();
+    }, direction);
   }
 }
 
-// Botones activación + estilo cuando están en los extremos
+// Botones
 function updateNavigationButtons() {
   const prevButton = document.getElementById("prev-month");
   const nextButton = document.getElementById("next-month");
