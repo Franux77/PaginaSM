@@ -7,6 +7,7 @@ body {
 }
 body.dark {
     background-color: #171717;
+    color: white;
 }
 .container {
     max-width: 90%;
@@ -16,8 +17,8 @@ body.dark {
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.079);
 }
-body.dark{
-    color: white;
+body.dark .container {
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.219);
 }
 h1 {
     font-size: 1.3rem;
@@ -25,6 +26,8 @@ h1 {
 }
 body.dark .schedule-item {
     background-color: transparent;
+    color: #ffcdde;
+    border: 1px solid #ffcdde;
 }
 .schedule-item {
     position: relative;
@@ -96,6 +99,10 @@ body.dark .schedule-item {
     min-width: 86%;
     overflow: hidden;
     z-index: 1;
+}
+body.dark .btn-volver{
+    background-color: #ffcdde;
+    color: #171717;
 }
 
 .btn-volver::after {
@@ -174,8 +181,8 @@ body.dark .schedule-item {
     color: #ff6f9f;
 }
 body.dark .reservar-btn {
-    background-color:#ff6f9f;
-    color: #ffffff;
+    background-color:#ffcdde;
+    color: #0a0a0a;
     border: none;
 }
 
@@ -184,8 +191,8 @@ body.dark .reservar-btn {
     color: #ff5f95;
 }
 body.dark .cancelar-btn {
-    background-color: #ff6f9f;
-    color: #ffffff;
+    background-color: #ffcdde;
+    color: #000000;
     border: none;
 }
 .cancelar-btn:hover {
