@@ -213,3 +213,14 @@ body.dark .cancelar-btn {
     align-items: center;
     padding: 30px;
 }
+.option-btn  {
+    transition: transform 0.15s ease-in-out;
+}
+
+.option-btn:active {
+    transform: scale(0.9); /* Se hunde al presionar */
+}
+
+.option-btn{
+    transform: scale(1); /* Vuelve a su tamaño normal */
+}
