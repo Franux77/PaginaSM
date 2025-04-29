@@ -47,6 +47,12 @@ function animateTransition(callback, direction = "left") {
   }, 300);
 }
 
+// Función para calcular si el horario está vencido
+function calculateHoursDifference(dateTime) {
+  const now = new Date();
+  return (new Date(dateTime) - now) / (1000 * 60 * 60);
+}
+
 // Render del calendario
 function renderCalendar() {
   calendar.innerHTML = "";
@@ -101,7 +107,11 @@ function renderCalendar() {
 
         if (snapshot.exists()) {
           const horarios = snapshot.data().horarios || [];
-          const isAvailable = horarios.some(horario => horario.disponible);
+
+          const isAvailable = horarios.some(horario => {
+            const horarioDateTime = new Date(`${dateKey}T${horario.hora}:00`);
+            return horario.disponible && calculateHoursDifference(horarioDateTime) > 1;
+          });
 
           if (isAvailable) {
             dayElement.classList.add("available");

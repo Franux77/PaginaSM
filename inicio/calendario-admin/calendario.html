@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calendario de Turnos</title>
+
+  <!-- Estilos principales -->
+  <link rel="stylesheet" href="/css/calendar.css">
+</head>
+<body>
+  <h1>Gestionar horarios</h1>
+  <a href="/inicio/admin.html" class="back-arrow">
+    ←
+</a>
+
+<section id="calendar-container">
+  <!-- Header con mes y navegación -->
+  <div id="calendar-header">
+    <button id="prev-month" onclick="changeMonth(-1)"><</button>
+    <h2 id="current-month">Mes Año</h2>
+    <button id="next-month" onclick="changeMonth(1)">></button>
+  </div>
+
+  <!-- Semana -->
+  <div class="weekdays"></div>
+
+  <!-- Spinner de carga (DENTRO de calendar-container) -->
+  <div id="calendar-loading">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- Calendario -->
+  <div id="calendar"></div>
+</section>
+
+
+  <div class="instrucciones">
+    <h2>Datos importantes</h2>
+    <ul>
+      <li>Puedes ver horarios disponibles (editables) y reservados (bloqueados).</li>
+      <li>Sólo puedes editar o eliminar horarios disponibles.</li>
+      <li> los días con fondo <span class="verde">rosa</span>: hay horarios disponibles.</li>
+      <li>Los días con fondo<span class="rojo"> rojo</span>: todos reservados.</li>
+      <li>Puedes agregar horarios estándar o personalizados.</li>
+      <li>Cambios que guardes se reflegarán en la página principal</li>
+      <li>No puedes modificar fechas pasadas.</li>
+    </ul>
+  </div>
+  
+  <!-- Firebase -->
+  <script type="module" src="/js/firebase-config.js"></script>
+
+  <!-- Tu calendario -->
+  <script type="module" src="/js/calendar.js"></script>
+  <script src="/js/admin-theme.js" defer></script>
+  <script src="/js/redirects_url.js" defer></script>
+  
+</body>
+</html>

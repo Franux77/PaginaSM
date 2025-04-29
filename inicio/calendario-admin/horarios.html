@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Horarios Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/admin-horarios.css">
+
+</head>
+<body>
+  <a href="/inicio/calendario-admin/calendario.html" class="back-arrow">
+    ←
+</a>
+  <h1>Gestionar horarios para <br><span id="fecha-titulo"></span></h1>
+
+  <div id="filtros-container">
+    <button id="filtro-disponibles">Turnos<br>disponibles<span id="contador-disponibles">0</span></button>
+    <button id="filtro-todos">Total<br>turnos<span id="contador-todos">0</span></button>
+    <button id="filtro-reservados">Turnos<br>reservados<span id="contador-reservados">0</span></button>
+</div>
+
+<div id="horarios-container">
+  <div id="spinner" style="display: none;">
+    <div class="spinner"></div>
+  </div>
+  <!-- Aquí se cargarán los horarios dinámicamente -->
+</div>
+
+
+  <div id="acciones">
+    <button id="agregar-horario">Agregar Horario</button>
+    <button id="agregar-estandar">Agregar Estándar</button>
+    <button id="guardar-cambios">Guardar Cambios</button>
+  </div>
+
+  <!-- Firebase -->
+  <script type="module" src="/js/firebase-config.js"></script>
+
+  <!-- Script de horarios -->
+  <script type="module" src="/js/admin-horarios.js"></script>
+  <script src="/js/admin-theme.js" defer></script>
+  <script src="/js/redirects_url.js" defer></script>
+</body>
+</html>

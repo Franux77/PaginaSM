@@ -106,7 +106,11 @@ function setupRealTimeSchedules() {
             return;
         }
 
-        const horariosDisponibles = horariosDelDia.filter(h => h.disponible);
+        const horariosDisponibles = horariosDelDia.filter(h => {
+            if (!h.disponible) return false;
+            const horarioDateTime = new Date(`${selectedDate}T${h.hora}:00`);
+            return calculateHoursDifference(horarioDateTime) > 1;
+        });
 
         if (horariosDisponibles.length === 0) {
             scheduleContainer.innerHTML = "<p>No hay horarios disponibles para este día</p>";
