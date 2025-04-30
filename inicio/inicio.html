@@ -10,6 +10,45 @@
     <link rel="shortcut icon" href="/assets/Logo.ico.png" type="image/x-icon">
 </head>
 <style>
+  .overlay-no-turns {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #ffffff;
+  /* border: 1px solid #ccc; */
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  width: auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.293);
+  z-index: 10;
+  animation: fadeIn 0.4s ease-out;
+  text-align: center;
+}
+
+.overlay-no-turns p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.next-month-btn {
+  margin-top: 0.7rem;
+  background-color: #ffcdde;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  color: #131313;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: 600;
+}
+
+.next-month-btn:hover {
+  background-color: transparent;
+  border: 1px solid #ffcdde;
+}
     .calendar-container .spinner-overlay {
   position: absolute;
   top: 0;

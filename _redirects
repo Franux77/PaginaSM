@@ -7,6 +7,8 @@
 /formulario     /inicio/formulario.html  200
 /gracias        /inicio/gracias.html     200
 /horarios       /inicio/horarios.html    200
+/calendario-admin       /inicio/calendario-admin/calendario.html    200
+/horarios-admin       /inicio/calendario-admin/horarios.html    200
 
 # Redirección por error (opcional)
 /*              /inicio/inicio.html      404

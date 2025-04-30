@@ -139,8 +139,21 @@ function renderCalendar() {
 
   Promise.all(promises).then(() => {
     loadingSpinner.style.display = "none";
+  
     if (!calendar.querySelector(".available")) {
-      calendar.insertAdjacentHTML("beforeend", `<p class="no-data-msg">No hay turnos disponibles este mes.</p>`);
+      const currentMonthName = currentDate.toLocaleString("es-ES", { month: "long" });
+
+calendar.insertAdjacentHTML("beforeend", `
+  <div class="overlay-no-turns">
+    <p>Turnos agotados en ${currentMonthName.charAt(0).toUpperCase() + currentMonthName.slice(1)}</p>
+    <button class="next-month-btn">Ir al siguiente mes</button>
+  </div>
+`);
+      // 🚨 Este evento tiene que estar justo después de inyectar el botón
+      const nextBtn = document.querySelector(".next-month-btn");
+      if (nextBtn) {
+        nextBtn.addEventListener("click", () => changeMonth(1));
+      }
     }
   });
 }

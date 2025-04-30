@@ -85,26 +85,20 @@ function createOptionsButtons(hora, itemElement) {
 }
 
 function setupRealTimeSchedules() {
-    const horariosCollection = collection(db, "horarios");
+    const docRef = doc(db, "horarios", selectedDate);
     loader.style.display = "flex";
 
-    onSnapshot(horariosCollection, (snapshot) => {
+    onSnapshot(docRef, (docSnapshot) => {
         scheduleContainer.innerHTML = "";
 
-        let horariosDelDia = [];
-
-        snapshot.forEach(doc => {
-            if (doc.id === selectedDate) {
-                horariosDelDia = doc.data().horarios;
-            }
-        });
-
-        if (horariosDelDia.length === 0) {
+        if (!docSnapshot.exists()) {
             alert("No hay horarios para esta fecha.");
             loader.style.display = "none";
             setTimeout(() => window.location.href = "/inicio/inicio.html", 2000);
             return;
         }
+
+        const horariosDelDia = docSnapshot.data().horarios || [];
 
         const horariosDisponibles = horariosDelDia.filter(h => {
             if (!h.disponible) return false;
